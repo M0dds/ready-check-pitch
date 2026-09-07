@@ -152,6 +152,25 @@
   .col h3{font-size:26px;text-transform:uppercase}
   .col p{color:var(--ink2);margin:0;font-size:15px}
 
+
+  /* ladder + invest */
+  .ladder{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--line2);font-size:13px;color:var(--ink2)}
+  .ladder li{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--line2)}
+  .ladder b{font-family:var(--serif);font-weight:400;font-size:16px;color:var(--bone);width:22px;flex:none;text-align:right}
+  .invest{background:var(--panel);border:1px solid var(--line);padding:22px;box-shadow:8px 8px 0 #000}
+  .invest-h{font-family:var(--sc);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
+  .irow{display:grid;grid-template-columns:70px 1fr 110px;gap:12px;align-items:center;margin-bottom:12px}
+  .ilbl{font-family:var(--sc);font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+  .itrack{position:relative;height:14px;background:#000;border:1px solid var(--line)}
+  .ifill{height:100%}
+  .itrack i{position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--ink3)}
+  .ival{font-size:13px;color:var(--ink2);text-align:right}
+  .iscale{display:grid;grid-template-columns:70px 1fr 110px;gap:12px;height:18px}
+  .isc{position:relative;font-family:var(--sc);font-size:11px;letter-spacing:.06em;color:var(--ink3)}
+  .isc em{position:absolute;top:0;font-style:normal;transform:translateX(-50%);white-space:nowrap}
+  .isc em:last-child{transform:translateX(-100%)}
+  .two.top{align-items:start}
+  .item li em{font-style:normal;color:var(--ink3)}
   footer{padding:50px 0 70px;color:var(--ink3);font-size:14px;border-top:1px solid var(--line2)}
 
   @media (max-width:860px){
@@ -430,11 +449,40 @@
   <div class="wrap">
     <div class="kicker">Das Roguelike</div>
     <h2>Gear baut man sich. Jeden Run neu.</h2>
-    <p class="lead">Es gibt vier Item-Slots: Main Hand, Off Hand, Armor, Ring. Items haben keine Stats – sie haben Sockel. Common bis Legendary heißt ein bis vier Sockel. Die Stats kommen aus den <b style="color:var(--bone);font-weight:500">Perks</b>: Edelsteine, die man im Dungeon findet und selbst einsetzt.</p>
+    <p class="lead">Vier Item-Slots: Main Hand, Off Hand, Armor, Ring. Items haben keine Stats, sondern <b style="color:var(--bone);font-weight:500">Sockel</b> – Common bis Legendary heißt ein bis vier davon. Alle Stats kommen aus <b style="color:var(--bone);font-weight:500">Perks</b>, den Edelsteinen, die man im Dungeon findet und selbst einsetzt. Um zu verstehen, was man da einsetzt, muss man erst die drei Farben kennen.</p>
+
+    <div class="sub-h">Drei Farben – jeder Skill hat eine</div>
+    <p>Alle Stats gehören zu einer von drei Gruppen, und jeder Skill trägt die Farbe der Gruppe, mit der er skaliert – das sind die farbigen Attribute oben bei den Crafts. Ein roter Melee-Skill wächst mit Attack Power, ein lila Ranged-Skill mit Spell Power, und alles Grüne – Heilung, Schilde, Taunts – wächst mit Health. Wer Rot sammelt, macht also seine roten Skills stärker und seine grünen nicht. Damit ist die Build-Entscheidung immer eine über das eigene Loadout: In welche Farbe gehe ich, und welche Skills nehme ich deshalb mit?</p>
+    <div class="col3">
+      <div class="col"><div class="swatch" style="background:var(--blood2)"></div><h3>Might</h3><p>Stahl, Pulver, Muskel. <span style="color:var(--bone)">Attack Power</span>, Crit, Tempo, Parry.</p>
+        <ul class="ladder"><li><b>2</b> Attack Power</li><li><b>6</b> Crit</li><li><b>12</b> Tempo</li><li><b>20</b> Epic-Stats +50 %</li><li><b>32</b> Capstone: Overkill</li></ul></div>
+      <div class="col"><div class="swatch" style="background:var(--green)"></div><h3>Vitality</h3><p>Erde, Wurzeln, Salz. <span style="color:var(--bone)">Health</span>, Armor, Block. Heilung und Schilde skalieren hier.</p>
+        <ul class="ladder"><li><b>2</b> Health</li><li><b>6</b> Armor</li><li><b>12</b> Movement Speed</li><li><b>20</b> Epic-Stats +50 %</li><li><b>32</b> Capstone: Ironclad</li></ul></div>
+      <div class="col"><div class="swatch" style="background:var(--violet)"></div><h3>Arcane</h3><p>Mond, Schatten, alte Worte. <span style="color:var(--bone)">Spell Power</span>, Cooldowns, Cast Speed.</p>
+        <ul class="ladder"><li><b>2</b> Spell Power</li><li><b>6</b> Cooldown Reduction</li><li><b>12</b> Resource Regen</li><li><b>20</b> Epic-Stats +50 %</li><li><b>32</b> Capstone: Echo</li></ul></div>
+    </div>
+
+    <div class="sub-h">Invest – wie die Kategorien in Deadlock</div>
+    <div class="two top">
+      <div>
+        <p>Wer Deadlock kennt, kennt das Prinzip: Items gehören zu Weapon, Vitality oder Spirit, und je mehr man in einer Kategorie besitzt, desto mehr Bonus gibt die Kategorie selbst obendrauf. Bei uns macht das der Perk. Jeder gesockelte Perk bringt seine <b style="color:var(--bone);font-weight:500">Wertigkeit</b> als Punkte in seine Farbe ein – ein Common auf Level 1 einen Punkt, ein Epic auf Level 4 zehn. Die Punktsumme einer Farbe schaltet die Leiter in den Kacheln oben frei: ab 2 Punkten wächst der Hauptstat, ab 6 kommt der zweite dazu, ab 12 der dritte, und bei 32 der Capstone. Jeder Punkt zählt in alle freigeschalteten Stufen hinein.</p>
+        <p>Der Perk gibt also zweimal: seine eigene Stat-Zeile, und seinen Beitrag zur Leiter. Bei 32 Punkten liegt ein Softcap, darüber zählt nur noch ein Viertel – außer man trägt ein Legendary, dessen Effekt genau mit den Punkten über dem Cap skaliert. Dann kippt der Run ins Absurde, und das ist erlaubt.</p>
+      </div>
+      <div class="invest">
+        <div class="invest-h">Beispiel: die beiden Items unten, zusammengerechnet</div>
+        <div class="irow"><span class="ilbl" style="color:#e0645a">Might</span><div class="itrack"><div class="ifill" style="width:50%;background:var(--blood2)"></div><i style="left:6.25%"></i><i style="left:18.75%"></i><i style="left:37.5%"></i><i style="left:62.5%"></i></div><span class="ival">16 Pkt · Stufe 12</span></div>
+        <div class="irow"><span class="ilbl" style="color:#93b56f">Vitality</span><div class="itrack"><div class="ifill" style="width:28%;background:var(--green)"></div><i style="left:6.25%"></i><i style="left:18.75%"></i><i style="left:37.5%"></i><i style="left:62.5%"></i></div><span class="ival">9 Pkt · Stufe 6</span></div>
+        <div class="irow"><span class="ilbl" style="color:#c793db">Arcane</span><div class="itrack"><div class="ifill" style="width:12.5%;background:var(--violet)"></div><i style="left:6.25%"></i><i style="left:18.75%"></i><i style="left:37.5%"></i><i style="left:62.5%"></i></div><span class="ival">4 Pkt · Stufe 2</span></div>
+        <div class="iscale"><span></span><div class="isc"><em style="left:0">0</em><em style="left:6.25%">2</em><em style="left:18.75%">6</em><em style="left:37.5%">12</em><em style="left:62.5%">20</em><em style="left:100%">32 · Softcap</em></div><span></span></div>
+        <p class="note" style="margin-top:12px">Ein Witch Hunter mit dieser Verteilung: Attack Power, Crit und Tempo aus der Might-Leiter, etwas Health und Armor aus Vitality. Skull Splitter und Ambush (Rot) profitieren voll, Shield Slam (Grün) kaum – also gehört er nicht ins Loadout.</p>
+      </div>
+    </div>
+
+    <div class="sub-h">Perks – die Steine in den Sockeln</div>
     <div class="two">
       <div>
-        <p>Jeder Perk hat eine Farbe, eine Seltenheit und ein Level. Die Farbe ist die Stat-Gruppe – rot, grün, lila. Die Seltenheit entscheidet, wie viele Stat-Zeilen er trägt; Uniques bringen statt Stats einen Effekt. Zwei gleiche Perks verschmelzen im Lager zu einem höheren Level. Was man damit baut, ist Sache des Spielers: Ein Witch Hunter, der tief in Rot geht, wird schneller und tödlicher. Derselbe Witch Hunter in Grün hält und tankt – mit Shield Slam im Kern statt Skull Splitter.</p>
-        <p>Das ist der Punkt: <b style="color:var(--bone);font-weight:500">Man baut sich sein Gear jeden Run passend zu seinem Gameplay.</b> Am Ende des Runs ist alles weg – bis auf die Erinnerung an die Kombination, die den Run gedreht hat.</p>
+        <p>Jeder Perk hat drei Merkmale, die man am Stein sieht: die <b style="color:var(--bone);font-weight:500">Farbe</b> (seine Gruppe), den <b style="color:var(--bone);font-weight:500">Rahmen</b> (Seltenheit: weiß Common, blau Rare, lila Epic, orange Unique) und <b style="color:var(--bone);font-weight:500">Level</b> 1 bis 4. Seltenheit entscheidet, wie viele Stats eine Zeile trägt; Uniques bringen statt Stats einen Effekt. Wertigkeit ist Level plus Seltenheitsbonus – ein Rare auf Level 4 zählt so viel wie ein Epic auf Level 1.</p>
+        <p>Perks kommen nach jedem Kampf zur Wahl, aus Schatzräumen und von Gegnern. Im Lager werden zwei gleiche Perks zu einem höheren Level verschmolzen, ein Level-4-Perk zur nächsten Seltenheit veredelt. Das ist der Punkt: <b style="color:var(--bone);font-weight:500">Man baut sich sein Gear jeden Run passend zu seinem Gameplay</b> – und am Ende ist alles weg, bis auf die Erinnerung an die Kombination, die den Run gedreht hat.</p>
       </div>
       <div class="items">
         <div class="item">
@@ -446,8 +494,8 @@
             <div class="sock empty"></div>
           </div>
           <ul>
-            <li><span>Rare Might · L3</span> – Attack Power, Crit</li>
-            <li><span>Epic Might · L1</span> – Attack Power, Tempo, Parry</li>
+            <li><span>Rare Might · L3</span> – Attack Power, Crit <em>· 6 Pkt</em></li>
+            <li><span>Epic Might · L1</span> – Attack Power, Tempo, Parry <em>· 7 Pkt</em></li>
             <li style="color:var(--ink3)">leerer Sockel</li>
           </ul>
         </div>
@@ -461,19 +509,13 @@
             <div class="sock"><div class="gem violet f-blue"></div></div>
           </div>
           <ul>
-            <li><span>Common Vitality · L2</span> – Health</li>
-            <li><span>Rare Vitality · L4</span> – Health, Block</li>
-            <li><span>Unique · Bloodletter</span> – Lacerate blutet doppelt</li>
-            <li><span>Rare Arcane · L1</span> – Spell Power, Cast Speed</li>
+            <li><span>Common Vitality · L2</span> – Health <em>· 2 Pkt</em></li>
+            <li><span>Rare Vitality · L4</span> – Health, Block <em>· 7 Pkt</em></li>
+            <li><span>Unique · Bloodletter</span> – Lacerate blutet doppelt <em>· 3 Pkt Might</em></li>
+            <li><span>Rare Arcane · L1</span> – Spell Power, Cast Speed <em>· 4 Pkt</em></li>
           </ul>
         </div>
       </div>
-    </div>
-
-    <div class="col3">
-      <div class="col"><div class="swatch" style="background:var(--blood2)"></div><h3>Might</h3><p>Stahl, Pulver, Muskel. Attack Power, Crit, Tempo, Parry.</p></div>
-      <div class="col"><div class="swatch" style="background:var(--green)"></div><h3>Vitality</h3><p>Erde, Wurzeln, Salz. Health, Armor, Block. Heilung und Schilde skalieren hier.</p></div>
-      <div class="col"><div class="swatch" style="background:var(--violet)"></div><h3>Arcane</h3><p>Mond, Schatten, alte Worte. Spell Power, Cooldowns, Cast Speed.</p></div>
     </div>
 
     <div class="sub-h">Talente</div>
